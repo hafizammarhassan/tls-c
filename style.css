@@ -367,3 +367,79 @@ input:focus, select:focus, textarea:focus {
     background-color: #ffffff;
     color: #d32f2f;
 }
+.btn-enroll {
+    display: inline-block;
+    background-color: #D32F2F; /* Red color */
+    color: white; /* Text color white */
+    padding: 10px 20px;
+    text-decoration: none; /* Link ki underline khatam karne ke liye */
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-enroll:hover {
+    background-color: #FFC107; /* Hover par Yellow ho jayega */
+    color: #333; /* Text dark ho jayega */
+}
+
+/* Course card ko alignment sahi karne ke liye */
+.course-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* Mathematics card ka rang Red rakhne ke liye */
+.red-card {
+    background-color: #D32F2F !important;
+    color: white !important;
+}
+
+/* Icons ko white karne ke liye */
+.link-card i {
+    font-size: 35px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* "Detail Dekhein" text ko chota aur safaid dikhane ke liye */
+.small-link {
+    font-size: 12px;
+    text-decoration: underline;
+    display: block;
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* Hover effect taake sab cards ek jese feel hon */
+.link-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+/* Mathematics card ko red aur white karne ke liye */
+.red-theme {
+    background-color: #D32F2F !important; /* Professional Red */
+    color: white !important;
+}
+
+.red-theme i {
+    color: white !important;
+}
+
+/* Sab cards ke icons ka size ek jesa rakhne ke liye */
+.link-card i {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* Hover effect */
+.link-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}

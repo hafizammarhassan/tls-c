@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - The Learning School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --red: #D32F2F;
+            --yellow: #FFC107;
+            --white: #ffffff;
+            --dark: #333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--dark);
+        }
+
+        /* Header Section */
+        .header {
+            background-color: var(--red);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 8px solid var(--yellow);
+        }
+
+        /* Navigation Button */
+        .back-nav {
+            padding: 20px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--red);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Main Content Container */
+        .courses-grid {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Course Cards */
+        .course-page-card {
+            border: 2px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .course-page-card:hover {
+            border-color: var(--yellow);
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--red);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 {
+            margin-top: 0;
+            color: var(--red);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .features-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .features-list i {
+            color: var(--yellow);
+        }
+
+        .apply-now-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--yellow);
+            color: var(--dark);
+            text-decoration: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .apply-now-btn:hover {
+            background-color: var(--red);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f9f9f9;
+            margin-top: 50px;
+            border-top: 2px solid var(--yellow);
+        }
+    </style>
+</head>
+<body>
+ 
+   
+
+
+ <div class="header">
+        <h1>Hamare Courses</h1>
+        <p>Apne mustaqbil ko roshan banayein</p>
+    </div>
+
+    <div class="back-nav">
+<a href="index.html" class="back-btn">← Back to DashBoard</a>
+    <div class="courses-grid">
+        <div class="course-page-card">
+            <div class="card-header">
+                <i class="fas fa-calculator fa-2x"></i>
+            </div>
+            <div class="card-body">
+                <h3>Mathematics</h3>
+                <p>Algebra se lekar Geometry tak, har cheez asaan lafzon mein.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Weekly Assignments</li>
+                    <li><i class="fas fa-check-circle"></i> PDF Practice Sheets</li>
+                    <li><i class="fas fa-check-circle"></i> 1-on-1 Help</li>
+                </ul>
+                <a href="admission.html" class="apply-now-btn">Abhi Register Karein</a>
+            </div>
+        </div>
+
+        <div class="course-page-card">
+            <div class="card-header">
+                <i class="fas fa-flask fa-2x"></i>
+            </div>
+            <div class="card-body">
+                <h3>Science</h3>
+                <p>Physics aur Chemistry ke mushkil concepts ab honge asaan.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Lab Experiments Video</li>
+                    <li><i class="fas fa-check-circle"></i> Basic to Advance</li>
+                    <li><i class="fas fa-check-circle"></i> Monthly Quizzes</li>
+                </ul>
+                <a href="admission.html" class="apply-now-btn">Abhi Register Karein</a>
+            </div>
+        </div>
+
+        <div class="course-page-card">
+            <div class="card-header">
+                <i class="fas fa-language fa-2x"></i>
+            </div>
+            <div class="card-body">
+                <h3>English Grammar</h3>
+                <p>Spoken English aur Grammar par mukammal aboor hasil karein.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Tenses Mastery</li>
+                    <li><i class="fas fa-check-circle"></i> Vocabulary Building</li>
+                    <li><i class="fas fa-check-circle"></i> Speaking Practice</li>
+                </ul>
+                <a href="admission.html" class="apply-now-btn">Abhi Register Karein</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 The Learning School & College | Kot Radha Kishen</p>
+    </footer>
+
+</body>
+</html>

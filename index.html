@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - The Learning School & College</title>
-        <script>
-        // Security check
+    <script>
         if (localStorage.getItem("isLoggedIn") !== "true") {
             window.location.href = "login.html";
         }
-
         function logoutUser() {
             localStorage.removeItem("isLoggedIn");
             window.location.href = "login.html";
         }
     </script>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -44,22 +41,26 @@
     </section>
 
     <section class="quick-links">
-        <div class="link-card yellow">
-            <i class="fas fa-user-graduate"></i>
-            <p>Courses</p>
-        </div>
+
+        <div class="link-card red-theme" onclick="window.location.href='courses.html'" style="cursor: pointer;">
+    <i class="fa-solid fa-book" style="display: block; font-size: 30px; margin-bottom: 10px; color: white;"></i>
+    <p style="margin: 0; font-weight: bold;">Courses</p>
+    <span style="font-size: 11px; text-decoration: underline; color: white;"></span>
+</div> 
         <div class="link-card orange" onclick="window.location.href='result.html'" style="cursor: pointer;">
-    <i class="fas fa-edit"></i>
-    <p>Online Result</p>
-</div>
+            <i class="fas fa-edit"></i>
+            <p>Online Result</p>
+        </div>
+
         <div class="link-card yellow-dark" onclick="window.location.href='admission.html'" style="cursor: pointer;">
-    <i class="fas fa-file-signature"></i>
-    <p>Admission</p>
-</div>
+            <i class="fas fa-file-signature"></i>
+            <p>Admission</p>
+        </div>
+
         <div class="link-card orange-dark" onclick="window.location.href='contact.html'" style="cursor: pointer;">
-    <i class="fas fa-phone-alt"></i>
-    <p>Contact Us</p>
-</div>
+            <i class="fas fa-phone-alt"></i>
+            <p>Contact Us</p>
+        </div>
     </section>
 
     <footer>
