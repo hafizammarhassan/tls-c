@@ -159,30 +159,32 @@
     </div>
 
     <script>
-        // GOOGLE SCRIPT KA URL YAHAN DALEN
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxwDRXFmNNqPK61kkOqYkxPnoRhqJo0ZLS4d-IQYmciQ28PAtcCfMyyeq7G_cz-dxzHPA/exec'
-        const form = document.forms['google-sheet']
-        const btn = document.getElementById('submitBtn')
+    // Aapka Naya URL yahan set kar diya hai
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyrITSLvynJU6Z1Mo9y1a55g4lITrq5sNUzeCuCYoCeynhl_mI1yGL6t8DzqW3ujrdQww/exec'
+    const form = document.forms['google-sheet']
+    const btn = document.getElementById('submitBtn')
 
-        form.addEventListener('submit', e => {
-            e.preventDefault()
-            btn.disabled = true
-            btn.innerHTML = "Submitting..."
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        
+        // Button ko disable karna taake double click na ho
+        btn.disabled = true
+        btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Submitting..."
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    btn.disabled = false
-                    btn.innerHTML = "SUBMIT APPLICATION"
-                    alert("Shabaash! Admission form jama ho gaya hai. Hum jald rabta karenge.")
-                    form.reset()
-                })
-                .catch(error => {
-                    btn.disabled = false
-                    btn.innerHTML = "SUBMIT APPLICATION"
-                    alert("Oops! Koi galti hui hai. Dubara koshish karen.")
-                    console.error('Error!', error.message)
-                })
-        })
-    </script>
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                btn.disabled = false
+                btn.innerHTML = "SUBMIT APPLICATION"
+                alert("Mubarak ho! Admission form jama ho gaya hai. Hum jald rabta karenge.")
+                form.reset() // Form khali karne ke liye
+            })
+            .catch(error => {
+                btn.disabled = false
+                btn.innerHTML = "SUBMIT APPLICATION"
+                alert("Form submit nahi hua! Console check karen ya URL dobara check karen.")
+                console.error('Error!', error.message)
+            })
+    })
+</script>
 </body>
 </html>
