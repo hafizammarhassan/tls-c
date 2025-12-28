@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - The Learning School & College</title>
+        <script>
+        // Security check
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        function logoutUser() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <img src="tlsc.jpg" alt="Logo" onerror="this.src='https://via.placeholder.com/50'"> 
+            <div class="logo-text">
+                <h1>THE LEARNING SCHOOL</h1>
+                <p>KOT RADHA KISHEN</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <button onclick="logoutUser()" class="logout-btn-header">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+            <i class="fas fa-bars menu-icon" style="margin-left: 20px; cursor: pointer;"></i>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Empowering Minds,<br>Shaping Futures</h1>
+        <p>Welcome to the TLS&C Website</p>
+        <button class="admission-hero-btn" onclick="window.location.href='admission.html'">Apply for Admission</button>
+    </section>
+
+    <section class="quick-links">
+        <div class="link-card yellow">
+            <i class="fas fa-user-graduate"></i>
+            <p>Courses</p>
+        </div>
+        <div class="link-card orange" onclick="window.location.href='result.html'" style="cursor: pointer;">
+    <i class="fas fa-edit"></i>
+    <p>Online Result</p>
+</div>
+        <div class="link-card yellow-dark" onclick="window.location.href='admission.html'" style="cursor: pointer;">
+    <i class="fas fa-file-signature"></i>
+    <p>Admission</p>
+</div>
+        <div class="link-card orange-dark" onclick="window.location.href='contact.html'" style="cursor: pointer;">
+    <i class="fas fa-phone-alt"></i>
+    <p>Contact Us</p>
+</div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <p>Kot Radha Kishen, Pakistan</p>
+    </footer>
+
+</body>
+</html>

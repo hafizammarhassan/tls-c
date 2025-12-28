@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Admission - The Learning School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body { background: #f8f9fa; padding: 40px 20px; }
+
+        .admission-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            background: #d32f2f;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 8px solid #fbc02d;
+        }
+
+        .form-header h2 { font-size: 2rem; letter-spacing: 1px; }
+        .form-header p { opacity: 0.9; font-size: 0.9rem; }
+
+        .form-body { padding: 40px; }
+
+        .section-title {
+            color: #d32f2f;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .input-box { display: flex; flex-direction: column; }
+        label { font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: #444; }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+            background: #fafafa;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #fbc02d;
+            background: #fff;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        .submit-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(211, 47, 47, 0.2);
+        }
+
+        .submit-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admission-container">
+        <div class="form-header">
+            <h2>Admission Form</h2>
+            <p>The Learning School & College, Kot Radha Kishen</p>
+        </div>
+
+        <form class="form-body" id="admissionForm" name="google-sheet">
+            <h3 class="section-title"><i class="fas fa-user"></i> Student Information</h3>
+            <div class="form-grid">
+                <div class="input-box">
+                    <label>Full Name</label>
+                    <input type="text" name="Full Name" placeholder="Enter Student Name" required>
+                </div>
+                <div class="input-box">
+                    <label>Father's Name</label>
+                    <input type="text" name="Father Name" placeholder="Enter Father's Name" required>
+                </div>
+                <div class="input-box">
+                    <label>Date of Birth</label>
+                    <input type="date" name="DOB" required>
+                </div>
+                <div class="input-box">
+                    <label>Applying for Class</label>
+                    <select name="Class" required>
+                        <option value="">Select Class</option>
+                        <option value="6th">Class 6th</option>
+                        <option value="7th">Class 7th</option>
+                        <option value="8th">Class 8th</option>
+                        <option value="9th">Class 9th</option>
+                        <option value="10th">Class 10th</option>
+                    </select>
+                </div>
+            </div>
+
+            <h3 class="section-title"><i class="fas fa-envelope"></i> Contact Details</h3>
+            <div class="form-grid">
+                <div class="input-box">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" name="WhatsApp" placeholder="03xx-xxxxxxx" required>
+                </div>
+                <div class="input-box">
+                    <label>Email Address (Optional)</label>
+                    <input type="email" name="Email" placeholder="example@mail.com">
+                </div>
+                <div class="input-box full-width">
+                    <label>Home Address</label>
+                    <textarea name="Address" rows="3" placeholder="Enter complete address"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="submit-btn">SUBMIT APPLICATION</button>
+            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </form>
+    </div>
+
+    <script>
+        // GOOGLE SCRIPT KA URL YAHAN DALEN
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxwDRXFmNNqPK61kkOqYkxPnoRhqJo0ZLS4d-IQYmciQ28PAtcCfMyyeq7G_cz-dxzHPA/exec'
+        const form = document.forms['google-sheet']
+        const btn = document.getElementById('submitBtn')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            btn.disabled = true
+            btn.innerHTML = "Submitting..."
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    btn.disabled = false
+                    btn.innerHTML = "SUBMIT APPLICATION"
+                    alert("Shabaash! Admission form jama ho gaya hai. Hum jald rabta karenge.")
+                    form.reset()
+                })
+                .catch(error => {
+                    btn.disabled = false
+                    btn.innerHTML = "SUBMIT APPLICATION"
+                    alert("Oops! Koi galti hui hai. Dubara koshish karen.")
+                    console.error('Error!', error.message)
+                })
+        })
+    </script>
+</body>
+</html>
